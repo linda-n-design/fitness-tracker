@@ -1,6 +1,6 @@
 # Fitness Tracker v1.0
 
-A privacy-first fitness tracker that runs entirely offline on your Mac. No accounts, no cloud, no social media, no tracking - just a single HTML file that lives on your hard drive.
+A desktop fitness tracker that runs offline in your web browser on your computer. Single HTML file - no accounts, no cloud, no tracking.
 
 ## Table of contents
 
