@@ -1,4 +1,4 @@
-# Fitness Tracker v1.0
+# Fitness Tracker v1.1
 
 A desktop fitness tracker that runs offline in your web browser on your computer. Single HTML file - no accounts, no cloud, no tracking.
 
@@ -90,6 +90,15 @@ MIT License - See LICENSE file for details.
 This is open source - fork it, modify it, make it work for you.
 
 ## Version history
+
+### v1.1 (2026-04-28) - Decimal Precision Update
+Improved jogging miles input for precise tracking.
+
+Changes:
+- Jogging miles now accepts decimal values to the hundredth (e.g., 2.22 miles)
+- Removed spinner buttons from miles input for easier direct entry
+- Increased miles input width to 7em for better readability
+- Fixed validation bug that caused incorrect value jumping
 
 ### v1.0 (2026-04-26) - Initial Release
 First public release. Designed for personal use on Mac/Safari.
