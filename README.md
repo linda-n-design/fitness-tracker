@@ -1,4 +1,4 @@
-# Fitness Tracker v1.1
+# Fitness Tracker v1.2
 
 A desktop fitness tracker that runs offline in your web browser on your computer. Single HTML file - no accounts, no cloud, no tracking.
 
@@ -46,6 +46,7 @@ The exercises in this tracker are based on what's doable for me today, which may
 - **Shoulder door pulley** - Hooks to the top of the door and when shut, it works almost like a Gyrotonic pulley tower. I love Gyrotonic but owning the tower or regularly attending classes is outside my budget. Plus the goal of this is to not be tethered to an external fitness class or gym.
 - **Resistance bands** - The cheapest gear I own.
 - **Exercise mat** (not yoga mat) - An inch thick, the sort used in Pilates mat classes. I like using it for burpees and planks instead of doing those exercises on the hardwood floor.
+- **Hula hoop** - Used indoors for hula hooping sets.
 - **Vibrating foot plate** - The most expensive gear in this list (not including the watch). Feels good for loosening up my knees and hips, and makes balance exercises like single-leg stands and squats more challenging.
 
 ### Outdoor access
@@ -91,6 +92,14 @@ This is open source - fork it, modify it, make it work for you.
 
 ## Version history
 
+### v1.2 (2026-11-12) - Hula Hooping Update
+Added hula hooping to the indoor workouts.
+
+Changes:
+- Added "Hula hooping" as the first indoor workout
+- Log the duration of up to 3 sets per session (<1 min, <5 min, <10 min, <15 min, <20 min, 20 min, or None)
+- Duration defaults to "None" for each set
+
 ### v1.1 (2026-04-28) - Decimal Precision Update
 Improved jogging miles input for precise tracking.
 
@@ -113,4 +122,3 @@ First public release. Designed for personal use on Mac/Safari.
 **Made for personal use, shared with others who might find it useful.**
 
 **Find this useful? I like coffee** - [buy me a coffee](https://buymeacoffee.com/lindadesign) ☕
-

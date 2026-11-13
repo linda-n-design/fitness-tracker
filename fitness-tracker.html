@@ -1877,7 +1877,7 @@
         <div class="slide-panel-body">
             <!-- About Section -->
             <div style="margin-bottom: var(--spacing-2xl);">
-                <h3 style="font-size: var(--font-size-lg); color: var(--color-brand-secondary); margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">Fitness Tracker v1.1</h3>
+                <h3 style="font-size: var(--font-size-lg); color: var(--color-brand-secondary); margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">Fitness Tracker v1.2</h3>
                 <p style="margin-bottom: var(--spacing-sm);">Your data stays local in your browser. No accounts, no cloud, complete privacy.</p>
                 <p style="margin-bottom: var(--spacing-sm);"><strong>Export regularly to back up your data!</strong></p>
                 
@@ -1935,7 +1935,7 @@
         // CONFIGURATION & CONSTANTS
         // ============================================================
         
-        const APP_VERSION = '1.0';
+        const APP_VERSION = '1.2';
         const STORAGE_KEY = 'fitness_tracker_data';
         const THEME_KEY = 'fitness_tracker_theme';
         
@@ -1951,6 +1951,8 @@
         // - Jump rope icon is from Activeicons (https://github.com/XJMiada/Activeicons)
         //   License: CC-BY-SA-4.0 (https://github.com/XJMiada/Activeicons#CC-BY-SA-4.0-1-ov-file)
         // ============================================================
+        const HULA_DURATIONS = ['<1 min', '<5 min', '<10 min', '<15 min', '<20 min', '20 min', 'None'];
+        
         const EXERCISES = {
             outdoor: [
                 {
@@ -2007,6 +2009,18 @@
                 }
             ],
             indoor: [
+                {
+                    id: 'hula_hooping',
+                    name: 'Hula hooping',
+                    fields: [
+                        { type: 'radio', id: 'hula_set1', label: 'Set 1 duration', options: HULA_DURATIONS, default: 'None' },
+                        { type: 'break' },
+                        { type: 'radio', id: 'hula_set2', label: 'Set 2 duration', options: HULA_DURATIONS, default: 'None' },
+                        { type: 'break' },
+                        { type: 'radio', id: 'hula_set3', label: 'Set 3 duration', options: HULA_DURATIONS, default: 'None' }
+                    ],
+                    meta: 'Per session: 2-3 sets \u00d7 10-20 min, 10-20 min rest.'
+                },
                 {
                     id: 'foot_strength',
                     name: 'Foot strength workout',
@@ -2324,7 +2338,7 @@
             if (field.type === 'radio') {
                 const optionsHTML = field.options.map((option, idx) => `
                     <label style="display: inline-block; margin-right: var(--spacing-md); margin-bottom: var(--spacing-xs);">
-                        <input type="radio" name="${fieldId}" value="${option}" data-field="${field.id}">
+                        <input type="radio" name="${fieldId}" value="${option}" data-field="${field.id}"${field.default === option ? ' checked data-default="true"' : ''}>
                         ${option}
                     </label>
                 `).join('');
@@ -2477,7 +2491,7 @@
                 checkbox.checked = false;
             });
             document.querySelectorAll('#fitness-form input[type="radio"]').forEach(radio => {
-                radio.checked = false;
+                radio.checked = radio.dataset.default === 'true';
             });
             
             // Populate with saved data
@@ -2769,7 +2783,7 @@
                 // Create template with all possible exercise fields
                 const templateHeaders = ['Date', 'steps', 'jogging_miles', 'jogging_minutes', 'dead_hang', 
                     'jump_rope_minutes', 'jump_rope_seconds', 'stairs_up', 'stairs_down', 
-                    'stairs_minutes', 'stairs_seconds', 'stairs_location', 'foot_strength', 
+                    'stairs_minutes', 'stairs_seconds', 'stairs_location', 'hula_set1', 'hula_set2', 'hula_set3', 'foot_strength', 
                     'shoulder_pulley', 'squats_reps', 'squats_sets', 'chest_press_reps', 
                     'chest_press_sets', 'seated_row_reps', 'seated_row_sets', 'deadlift_reps', 
                     'deadlift_sets', 'anti_rotation_reps', 'anti_rotation_sets', 
